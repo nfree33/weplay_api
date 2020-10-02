@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ledgers
   resources :parks
   resources :users do
     collection do

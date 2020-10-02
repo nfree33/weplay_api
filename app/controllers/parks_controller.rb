@@ -5,12 +5,14 @@ class ParksController < ApplicationController
   def index
     @parks = Park.all
 
-    render json: @parks
+    # render json: @parks
+    render json: @parks.to_json(include: :users)
   end
 
   # GET /parks/1
   def show
-    render json: @park
+    # render json: @park
+    render json: @park.to_json(include: :users)
   end
 
   # POST /parks

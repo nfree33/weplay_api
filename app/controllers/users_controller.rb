@@ -7,12 +7,12 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-    render json: @users
+    render json: @users.to_json(include: :parks)
   end
 
   # GET /users/1
   def show
-    render json: get_current_user
+    render json: get_current_user.to_json(include: :parks)
   end
 
   # POST /login 

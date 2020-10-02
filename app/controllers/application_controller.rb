@@ -11,9 +11,11 @@ class ApplicationController < ActionController::API
     end
 
     def decode_token(token_input)
+        puts "DECODE TOKEN, token input #{token_input}"
+        puts token = JWT.decode(token_input, ENV['JWT_SECRET'], true)
         JWT.decode(token_input, ENV['JWT_SECRET'], true)
     rescue
-        render json: { status: 401, message: "You're doing great, keep trying your best... but it def still doesn't work"}
+        render json: { status: 401, message: "You're doing great, keep trying your best... but it still doesn't work"}
     end
 
     def get_current_user

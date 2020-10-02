@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_203909) do
+ActiveRecord::Schema.define(version: 2020_10_02_170426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ledgers", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "park_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["park_id"], name: "index_ledgers_on_park_id"
+    t.index ["user_id"], name: "index_ledgers_on_user_id"
+  end
 
   create_table "parks", force: :cascade do |t|
     t.string "name"
@@ -35,4 +44,6 @@ ActiveRecord::Schema.define(version: 2020_10_01_203909) do
     t.string "email"
   end
 
+  add_foreign_key "ledgers", "parks"
+  add_foreign_key "ledgers", "users"
 end
