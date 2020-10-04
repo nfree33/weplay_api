@@ -49,3 +49,4 @@ class LedgersController < ApplicationController
       params.require(:ledger).permit(:user_id, :park_id)
     end
 end
+end
