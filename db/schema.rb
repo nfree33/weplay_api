@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_10_02_170426) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "email"
+    # t.string "email"
   end
 
   add_foreign_key "ledgers", "parks"
