@@ -10,7 +10,7 @@ class LedgersController < ApplicationController
 
   # GET /ledgers/1
   def show
-    render json: @ledger,to_json(include: [:user, :park])
+    render json: @ledger.to_json(include: [:user, :park])
   end
 
   # POST /ledgers
